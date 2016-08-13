@@ -1,13 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-
-
-
-/*node: a domain model representing a node in a Linked List*/
-struct node {
-	int data;
-	struct node *next;
-};
+#include "ds.h"
 
 
 /*printList: prints all the elements in the LinedList*/
@@ -32,23 +23,6 @@ void push(struct node **head_ref ,int n) {
 	new->next = *head_ref;
 	*head_ref = new;
 }
-
-/*void insert_After(struct node **prev_node,int n) {
-
-	
-	if(*prev_node == NULL)
-	{
-		printf("error: the given previous node cannot be null ");
-		return;
-	}
-
-
-	struct node *new_node = (struct node *)(malloc(sizeof(struct node)));
-
-	new_node->data = n;
-	new_node->next = (*prev_node)->next;
-	(*prev_node)->next = new_node;
-}*/
 
 
 /*insert_After: insert the new element after the given node in the Linked List
@@ -94,46 +68,6 @@ void append(struct node ** head_ref, int n) {
 	last->next = new_node;
 	return;
 
-}
-
-int main() {
-	
-	struct node* head = NULL;
-	struct node* second = NULL;
-	struct node* third = NULL;
-
-
-	head = (struct node*)malloc(sizeof(struct node));
-	second = (struct node*)malloc(sizeof(struct node));
-	third = (struct node*)malloc(sizeof(struct node));
-
-
-	head->data = 2;
-	head->next = second;
-
-	second->data = 3;
-	second->next = third;
-
-	third->data = 5;
-	third->next = NULL;
-
-	printList(head);
-	
-	push(&head, 1);
-	printList(head);
-
-	insert_After(	second, 4);
-	printList(head);
-
-	append(&head, 6);
-	printList(head);
-
-	struct node * empty = NULL;
-
-	append(&empty, 4);
-	printList(empty);
-
-	return 0;
 }
 
 
