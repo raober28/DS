@@ -51,5 +51,10 @@ int main() {
 	deleteNode_by_Pos(&empty, 8);
 	printList(head);
 
+
+	printf("Count = %d\n", getCount(head));
+
+	printf("Count = %d\n", getCountR(head));
+
 	return 0;
 }
