@@ -56,5 +56,13 @@ int main() {
 
 	printf("Count = %d\n", getCountR(head));
 
+
+	swap(&empty, 2, 4);
+	swap(&head, 1, 4);
+	printList(head);
+
+
+
+
 	return 0;
 }
