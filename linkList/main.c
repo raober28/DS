@@ -45,6 +45,11 @@ int main() {
 	printList(empty);
 
 	deleteNode_by_key(&empty, 4);
+	printf("hello\n");
+	printList(head);
+
+	deleteNode_by_Pos(&empty, 8);
+	printList(head);
 
 	return 0;
 }

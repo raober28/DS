@@ -17,3 +17,4 @@ void insert_After(struct node *prev_node,int n);
 void append(struct node ** head_ref, int n);
 
 void deleteNode_by_key(struct node **head ,int n); 
+void deleteNode_by_Pos(struct node **head,int pos);
