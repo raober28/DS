@@ -2,9 +2,14 @@
 
 int main() {
 	
-	struct node* head = NULL;
-	struct node* second = NULL;
-	struct node* third = NULL;
+	struct node *head   = NULL;
+	struct node *second = NULL;
+	struct node *third  = NULL;
+	struct node *one    = NULL;
+
+	one = (struct node*)malloc(sizeof(struct node));
+	one->data = 1;
+	one->next = NULL;
 
 
 	head = (struct node*)malloc(sizeof(struct node));
@@ -59,6 +64,10 @@ int main() {
 
 	swap(&empty, 2, 4);
 	swap(&head, 1, 4);
+	printList(head);
+
+	reverse(&head);
+
 	printList(head);
 
 

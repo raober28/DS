@@ -27,4 +27,5 @@ int getCount(struct node * head);
 int getCountR(struct node * head);
 
 void swap(struct node ** head, int x, int y);
+void reverse(struct node **head_ref);
 
