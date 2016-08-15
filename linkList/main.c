@@ -70,6 +70,33 @@ int main() {
 
 	printList(head);
 
+	struct node *node1 = (struct node *)(malloc(sizeof(struct node)));
+	node1->data = 7;
+	node1->next = NULL;
+	append(&node1, 23);
+	append(&node1, 45);
+	append(&node1, 67);
+	append(&node1, 78);
+	append(&node1, 92);
+
+
+	struct node *node2 = (struct node *)(malloc(sizeof(struct node)));
+	node2->data = 2;
+	node2->next = NULL;
+	append(&node2, 24);
+	append(&node2, 35);
+	append(&node2, 41);
+	append(&node2, 57);
+	append(&node2, 89);
+
+	printList(node1);
+	printList(node2);
+	
+	struct node * result = merge(node1, node2);
+
+	printList(result);
+
+
 
 
 

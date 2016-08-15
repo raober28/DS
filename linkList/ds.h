@@ -29,3 +29,6 @@ int getCountR(struct node * head);
 void swap(struct node ** head, int x, int y);
 void reverse(struct node **head_ref);
 
+
+struct node * merge(struct node * l_head, struct node * r_head);
+
