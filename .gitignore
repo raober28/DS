@@ -1,3 +1,4 @@
 *.out
+*.o
 temp.c
 notes.txt

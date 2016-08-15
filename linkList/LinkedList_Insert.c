@@ -1,17 +1,5 @@
 #include "ds.h"
 
-
-/*printList: prints all the elements in the LinedList*/
-void printList(struct node *n)
-{
-	while(n != NULL)
-	{
-		printf("%d%s", n->data, (n->next != NULL)?" -> ":"");
-		n = n->next;
-	}
-	printf("\n");
-}
-
 /*push: inserts a new element in the begining of LinkedList
 		complexity is O(1) as it inserts by just switching the head pointers	
 */

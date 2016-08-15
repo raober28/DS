@@ -10,6 +10,7 @@ struct node {
 };
 
 
+
 void printList(struct node *n);
 
 void push(struct node **head_ref ,int n);
@@ -32,3 +33,8 @@ void reverse(struct node **head_ref);
 
 struct node * merge(struct node * l_head, struct node * r_head);
 
+
+struct node * fetch(struct node *head, int n);
+
+
+struct node *reverse_in_group (struct node *head, int k);

@@ -1,5 +1,8 @@
 #include "ds.h"
 
+
+void test_reverse_in_groups();
+
 int main() {
 	
 	struct node *head   = NULL;
@@ -96,9 +99,34 @@ int main() {
 
 	printList(result);
 
-
-
-
+	test_reverse_in_groups();
 
 	return 0;
+}
+
+
+
+void test_reverse_in_groups() {
+	struct node * temp = (struct node *)(malloc(sizeof(struct node)));
+
+	temp->data = 1;
+	temp->next = NULL;
+
+	
+	append(&temp, 2);
+	append(&temp, 3);
+	append(&temp, 4);
+	append(&temp, 6);
+	append(&temp, 7);
+	append(&temp, 8);
+	append(&temp, 9);
+	append(&temp, 10);
+	
+
+	printf("\nOriginal List:\t\t ");
+	printList(temp);
+
+	struct node * result = reverse_in_group(temp, 2);
+	printf("Reverted List in Groups: ");
+	printList(result);
 }
