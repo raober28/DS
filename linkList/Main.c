@@ -2,6 +2,7 @@
 
 
 void test_reverse_in_groups();
+void test_list_loop_removal();
 
 int main() {
 	
@@ -101,12 +102,17 @@ int main() {
 
 	test_reverse_in_groups();
 
+	test_list_loop_removal();
+
 	return 0;
 }
 
 
 
 void test_reverse_in_groups() {
+
+	print("***********Testing List reverse in groups***********");
+
 	struct node * temp = (struct node *)(malloc(sizeof(struct node)));
 
 	temp->data = 1;
@@ -129,4 +135,57 @@ void test_reverse_in_groups() {
 	struct node * result = reverse_in_group(temp, 2);
 	printf("Reverted List in Groups: ");
 	printList(result);
+}
+
+
+void test_list_loop_removal() {
+
+	print("***********Testing Lost loop removal***********");
+
+	struct node * temp1 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp2 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp3 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp4 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp5 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp6 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp7 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp8 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp9 = (struct node *)(malloc(sizeof(struct node)));
+	struct node * temp10 = (struct node *)(malloc(sizeof(struct node)));
+
+
+	temp1->data  =  1;
+	temp2->data  =  2;
+	temp3->data  =  3;
+	temp4->data  =  4;
+	temp5->data  =  5;
+	temp6->data  =  6;
+	temp7->data  =  7;
+	temp8->data  =  8;
+	temp9->data  =  9;
+	temp10->data = 10;
+
+
+	temp1->next  = temp2;
+	temp2->next  = temp3;
+	temp3->next  = temp4;
+	temp4->next  = temp5;
+	temp5->next  = temp6;
+	temp6->next  = temp7;
+	temp7->next  = temp8;
+	temp8->next  = temp9;
+	temp9->next  = temp10;
+	temp10->next = temp5;
+	
+
+	int result = detectAndRemoveLoop(temp1);
+
+	printf("There is a loop in the list: %s\n", (result == 1) ? "true": "false");
+
+	result = detectAndRemoveLoop(temp1);
+
+	printf("Now there is a loop in the list: %s\n", (result == 1) ? "true": "false");
+
+	printList(temp1);
+
 }

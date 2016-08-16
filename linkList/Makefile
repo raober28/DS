@@ -5,11 +5,9 @@ CFLAGS=-c -Wall
 all: hello
 
 
-hello:	Util.o LinkedList_Insert.o LinkedList_Delete.o LinkedList_Swap.o LinkedList_Reverse.o LinkedList_Merge.o LinkedList_Count.o Main.o
-	$(CC) -o list.out  LinkedList_Count.o LinkedList_Delete.o LinkedList_Merge.o LinkedList_Reverse.o Util.o LinkedList_Insert.o LinkedList_Swap.o Main.o -I. 
+hello:	Util.o LinkedList_Insert.o LinkedList_Delete.o LinkedList_Swap.o LinkedList_Reverse.o LinkedList_Merge.o LinkedList_Count.o RemoveLoop.o Main.o
+	$(CC) -o list.out  LinkedList_Count.o LinkedList_Delete.o LinkedList_Merge.o LinkedList_Reverse.o Util.o LinkedList_Insert.o LinkedList_Swap.o RemoveLoop.o  Main.o -I. 
 	
-
-
 
 
 Util.o:	Util.c
@@ -36,6 +34,10 @@ LinkedList_Merge.o:	LinkedList_Merge.c
 
 LinkedList_Count.o:	LinkedList_Count.c
 	$(CC) -c  LinkedList_Count.c
+
+
+RemoveLoop.o:	RemoveLoop.c
+	$(CC) -c RemoveLoop.c
 
 Main.o:	Main.c
 	$(CC) -c Main.c
