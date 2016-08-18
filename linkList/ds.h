@@ -13,11 +13,16 @@ struct node {
 };
 
 
+struct node * new_node(int n);
 
 void print(char msg[]);
 void printList(struct node *n);
 
 int length_of_loop(struct node *loop_node);
+
+
+int make_no_Out_of_list(struct node *head);
+
 
 struct node *skip_first_n_nodes(struct node *head, int n);
 void push(struct node **head_ref ,int n);
@@ -52,4 +57,7 @@ int detectAndRemoveLoop(struct node *head);
 void removeLoop(struct node *loop_node, struct node *head);
 
 void removeLoop_Optimised(struct node * loop_node, struct node *head);
+
+
+struct node *add_Linked_list(struct node *first, struct node *second);
 

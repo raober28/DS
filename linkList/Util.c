@@ -2,6 +2,15 @@
 
 
 
+struct node * new_node(int n) {
+
+	struct node *head = (struct node *)malloc(sizeof(struct node));
+
+	head->data = n;
+	head->next = NULL;
+}
+
+
 void print(char msg[]) {
 	printf("\n\n%75s\n",msg);
 }
@@ -102,5 +111,21 @@ struct node *skip_first_n_nodes(struct node *head, int n) {
 	}
 
 	return head;
+}
+
+
+int make_no_Out_of_list(struct node *head)
+{	
+
+	int n = 0, temp;
+	while(head != NULL)
+	{	
+		temp = head->data;
+		n = n * 10 + temp;
+		head = head->next;
+	}
+
+	return n;
+
 }
 
