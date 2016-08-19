@@ -28,6 +28,19 @@ void printList(struct node *n)
 }
 
 
+int length_of_list(struct node * head)
+{
+	int n = 0;
+
+	while(head)
+	{
+		head = head->next;
+		n++;
+	} 
+
+	return n;
+}
+
 
 struct node * fetch(struct node *head, int n)
 {
