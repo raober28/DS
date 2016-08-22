@@ -21,3 +21,5 @@ void insert_before(struct node **next_node, int n);
 
 
 void delete(struct node **curr_node);
+
+void reverse(struct node **head_ref);
