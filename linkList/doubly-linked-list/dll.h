@@ -18,3 +18,6 @@ void push(struct node **head_ref, int n);
 void insert_after(struct node **prev_node, int n);
 void append(struct node **head_ref, int n);
 void insert_before(struct node **next_node, int n);
+
+
+void delete(struct node **curr_node);
