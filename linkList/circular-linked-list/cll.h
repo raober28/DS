@@ -14,3 +14,5 @@ void printList(struct node *head);
 struct node *new_node(int n);
 void push(struct node **head_ref, int n);
 void split(struct node **tail,struct node **first_tail, struct node **second_tail);
+
+void insert_sorted(struct node **head, int n);
