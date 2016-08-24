@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
+/*stack using array*/
 struct Stack {
 	int top;
 	unsigned capacity;
