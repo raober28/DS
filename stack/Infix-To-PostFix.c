@@ -67,12 +67,14 @@ struct stack {
  	return '$';
  }
 
-
+ /*isOperand: a utility function to check if the given character is operand*/
  int isOperand(char ch)
  {
  	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
  }
 
+ /*prec: return precedence of a given character
+ 		 Higher returned value means high precedence*/
  int prec(char ch)
  {
  	switch(ch)
@@ -92,39 +94,55 @@ struct stack {
  }
 
 
+ /*infix_to_prefix: converts infix notation to postfix*/
  char *infix_to_prefix(char * exp)
  {
+ 	int i , k;
+ 	
+ 	/*create a stack equal to expression size*/
  	struct stack *stack = create_stack(strlen(exp));
 
- 	int i , k;
 
- 	if(!stack)
+ 	if(!stack)	//checks if stack was created successfully
  		return NULL;
 
  	for(i = 0, k = -1; exp[i]; i++)
  	{
+ 		/*If the scanned character is operand, add it to output*/
  		if(isOperand(exp[i]))
  		{
  			exp[++k] = exp[i];
  		}
 
+ 		/*If the scanned character is an '(', push it to stack*/
  		else if(exp[i] == '(')
  		{
  			push(stack, exp[i]);
  		}
 
+ 		/*If the scanned character is an ')', pop and output from the stack
+ 		  until an '(' is encountered*/
  		else if(exp[i] == ')')
  		{
  			while(!isEmpty(stack) && peek(stack) != '(')
  				exp[++k] = pop(stack);
 
- 			if(!isEmpty(stack)	&& peek(stack) != '(')
- 				return  NULL;
+ 			if(isEmpty(stack))
+ 			{
+ 				printf("error: invalid expression, matching opening brace for ')' does not found\n");
+ 				return NULL;
+ 			}
+
+ 			else if(!isEmpty(stack)	&& peek(stack) != '(')
+ 			{
+			    printf("error: invalid expression\n");
+ 				return  NULL;	//invalid expression
+ 			}
  			else
- 				pop(stack);
+ 				pop(stack);	
  		}
 
- 		else 
+ 		else 	// an operator is encountered
  		{
  			while (!isEmpty(stack) && prec(exp[i]) <= prec(peek(stack)))
                 exp[++k] = pop(stack);
@@ -132,9 +150,16 @@ struct stack {
  		}
  	}
 
- 	
+ 	/*pop all the operators from stack */
  	while (!isEmpty(stack))
-        exp[++k] = pop(stack );
+ 	{	
+ 		if(peek(stack) == '(')
+ 		{
+ 			printf("error: invalid expression, matching closing brace for '(' does not found\n");
+ 			return NULL;
+ 		}
+        exp[++k] = pop(stack);
+ 	}
 
  	exp[++k] = '\0';
  	printf("%s\n", exp);
@@ -146,7 +171,7 @@ struct stack {
 
  int main()
 {
-    char exp[] = "a+b*(c^d-e)^(f+g*h)-i";
+    char exp[] = "(a+b)((,())";
     infix_to_prefix(exp);
     return 0;
 }
