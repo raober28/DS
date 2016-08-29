@@ -3,29 +3,21 @@
 #include <limits.h>
 #include <string.h>
 
-/*stack using array*/
+
 struct Stack {
 	int top;
 	unsigned capacity;
-	int *array;
+	char *array;
 };
 
-
 struct Stack *createStack(unsigned capacity);
-
 
 int isFull(struct Stack *stack);
 int isEmpty(struct Stack *stack);
 
-void push(struct Stack *stack, int n);
+void push(struct Stack *stack, char ch);
+char pop(struct Stack *stack);
 
+char peek(struct Stack *stack);
 
-int pop(struct Stack *stack);
-int peek(struct Stack *stack);
-
-char *reverse(char *str);
-
-void strcatR(char *src, char *des);
-
-
-
+void reverse(char *str);
