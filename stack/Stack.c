@@ -6,6 +6,9 @@ struct Stack *createStack(unsigned capacity)
 {
 	struct Stack *stack = (struct Stack*)malloc(sizeof(struct Stack));
 
+	if(!stack)
+		return NULL;
+	
 	stack->capacity = capacity;
 	stack->top = -1;
 	stack->array = (int *)malloc(stack->capacity * sizeof(int));

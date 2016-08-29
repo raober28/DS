@@ -171,7 +171,7 @@ struct stack {
 
  int main()
 {
-    char exp[] = "(a+b)((,())";
+    char exp[] = "a+b*c";
     infix_to_prefix(exp);
     return 0;
 }
