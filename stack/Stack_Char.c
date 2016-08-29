@@ -36,7 +36,7 @@ void push(struct Stack *stack, char ch)
 {
 	if(isFull(stack))
 	{
-		printf("error: stack overflow");
+		printf("error: stack overflow\n");
 		return;
 	}
 
@@ -49,10 +49,11 @@ char pop(struct Stack *stack)
 {
 	if(isEmpty(stack))
 	{
-		printf("error: stack underflow");
+		printf("error: stack underflow\n");
 		return CHAR_MIN;
 	}
 
+	printf(" pop from  stack \n");
 	return stack->array[stack->top--];
 }
 
@@ -61,7 +62,7 @@ char peek(struct Stack *stack)
 {
 	if(isEmpty(stack))
 	{
-		printf("warning: stack empty");
+		printf("warning: stack empty\n");
 		return CHAR_MIN;
 	}
 

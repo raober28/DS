@@ -21,3 +21,5 @@ char pop(struct Stack *stack);
 char peek(struct Stack *stack);
 
 void reverse(char *str);
+
+int is_balanced_parantheses(char *expr);
