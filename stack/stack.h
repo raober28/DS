@@ -23,7 +23,12 @@ void push(struct Stack *stack, int n);
 int pop(struct Stack *stack);
 int peek(struct Stack *stack);
 
+void printStack(struct Stack *stack);
+
 char *reverse(char *str);
+
+void recursive_reverse(struct Stack **stack);
+
 
 void strcatR(char *src, char *des);
 

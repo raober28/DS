@@ -69,3 +69,16 @@ int peek(struct Stack *stack)
 	return stack->array[stack->top];
 }
 
+
+void printStack(struct Stack *stack)
+{
+	int i = 0;
+
+	printf("\n");
+	for(i = stack->top ; i > -1; i--)
+	{
+		printf("%d %s",stack->array[i], (i != 0)?"->":"" );
+	}
+
+	printf("\n");
+}
