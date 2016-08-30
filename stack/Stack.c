@@ -42,7 +42,7 @@ void push(struct Stack *stack, int n)
 	}
 
 	stack->array[++stack->top]	= n;
-	printf("%d pushed to stack \n", n);
+	//printf("%d pushed to stack \n", n);
 }
 
 /*pop: removes an item from stack*/
