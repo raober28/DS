@@ -7,6 +7,9 @@ struct Stack *reverse_stack(struct Stack *stack, struct Stack *recursive_reverse
 }
 
 
+/*The idea is to hold all the values in Function Call Stack until the stack becomes empty
+  When the stack becomes empty, insert all held items one by obe at the bottom of stack*/
+
 /*insertAtBottom: inserts the given element at the bottom of stack*/
 void insertAtBottom(struct Stack **top_ref, int item)
 {	
@@ -47,7 +50,6 @@ int main(int argc, char const *argv[])
 	struct Stack *stack;
 
 	stack   = createStack(10);
-	
 	
 	push(stack, 10);
 	push(stack, 9);
