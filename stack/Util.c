@@ -1,11 +1,9 @@
-void strcatR(char *src, char *des)
+#include "util.h"
+
+void printArray(int array[], int n)
 {
-	while(*src)
-		*src++;
+	for(int i = 0; i < n; i++)
+		printf("%s%d %s", (i == 0)?"[":"", array[i], (n -1 == i)?"]":",");
 
-	while(*des)
-		*src++ = *des++;
-
-	
-	*src = '\0';
+	printf("\n");
 }
