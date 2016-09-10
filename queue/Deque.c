@@ -109,10 +109,16 @@ int deleteLast(struct Deque *queue)
 	int item = node->item;
 
 	queue->rear = queue->rear->prev;
-	queue->rear->next = NULL;
+	
 
+	
+
+	/*queue had only one node*/
 	if(queue->rear == NULL)
 		queue->front = NULL;
+	else
+		queue->rear->next = NULL;  //make next of new rear NULL
+
 
 	free(node);
 	return item;
