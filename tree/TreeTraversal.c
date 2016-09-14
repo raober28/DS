@@ -1,4 +1,4 @@
-#include "binaryTree.h"
+#include "treeTraversal.h"
 
 
 /*printPostorder: Given a binary treee, print its nodes according to the 
@@ -55,3 +55,51 @@ void printPreorder(struct Node *node)
 	printInorder(node->right);
 
 }
+
+/*height: Compute the height of a tree --the number of nodes along the longest path
+		  from the root node down to the farthest leaf node*/
+int height(struct Node *root)
+{
+	if(root == NULL)
+		return 0;
+	else 
+	{
+		int lheight = height(root->left);
+		int rheight = height(root->right);
+
+		if(lheight > rheight)
+			return(lheight + 1);
+		else 
+			return (rheight + 1);
+	}
+}
+
+/*printGivenLevel: Prints all the nodes at a given level in a tree*/
+void printGivenLevel(struct Node *root, int level)
+{
+	if(root == NULL)
+		return;
+	
+	else if(level == 1)
+		printf("%d ", root->data);
+	
+	else if(level > 1)
+	{
+		printGivenLevel(root->left, level - 1);
+		printGivenLevel(root->right, level -1);
+	}
+
+}
+
+/*printLevelorder: Function to print all the nodes at all levels in tree in sequential order*/
+void printLevelorder(struct Node *root)
+{
+	int i, h;
+
+	h = height(root);
+
+	for(i = 1;i <= h; i++)
+		printGivenLevel(root, i);
+}
+
+
