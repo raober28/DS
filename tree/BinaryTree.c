@@ -12,3 +12,15 @@ struct Node *newNode(int n)
 	node->right = NULL;
 	return node;
 }
+
+
+/*height: Compute the height of a tree. Height is the number of nodes along the longest path 
+		  from root node down to the farthest leaf node*/
+int height(struct Node *root)
+{
+	if(root == NULL)
+		return 0;
+
+	/*If tree is not empty than height = 1 + max of left height and right height*/
+	return 1 + max(height(root->left), height(root->right));
+}
