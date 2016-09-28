@@ -14,7 +14,6 @@ void printPostorder(struct Node *node)
 	//then recur on right subtree
 	printPostorder(node->right);
 
-
 	//now deal with the node
 	printf("%d ", node->data);
 }
