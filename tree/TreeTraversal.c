@@ -55,24 +55,6 @@ void printPreorder(struct Node *node)
 
 }
 
-/*height: Compute the height of a tree --the number of nodes along the longest path
-		  from the root node down to the farthest leaf node*/
-int height(struct Node *root)
-{
-	if(root == NULL)
-		return 0;
-	else 
-	{
-		int lheight = height(root->left);
-		int rheight = height(root->right);
-
-		if(lheight > rheight)
-			return(lheight + 1);
-		else 
-			return (rheight + 1);
-	}
-}
-
 /*printGivenLevel: Prints all the nodes at a given level in a tree*/
 void printGivenLevel(struct Node *root, int level)
 {
