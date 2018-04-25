@@ -10,7 +10,7 @@ public class WeightedQuickUnion {
         size = new int[N];
         for (int i = 0; i < N; i++) {
             id[i] = i;
-            size[i] = 0;
+            size[i] = 1;
         }
     }
 
@@ -37,5 +37,18 @@ public class WeightedQuickUnion {
             id[j] = i;
             size[i] += size[j];
         }
+    }
+
+    //finds the largest element in the connected component list of given element
+    public int find(int i) {
+        int max = i;
+
+        while(i != id[i])
+        {
+            if(id[i] > max)
+                max = id[i];
+            i = id[i];
+        }
+        return max;
     }
 }
